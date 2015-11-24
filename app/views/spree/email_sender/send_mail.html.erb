@@ -1,3 +1,4 @@
+<div class="container">
 <h1><%= Spree.t('email_to_friend.tell_about', product: @object.name) %></h1>
 
 <%= form_for(@mail_to_friend, url: email_to_friend_path(params[:type], @object)) do |f| -%>
@@ -29,3 +30,4 @@
     <%= f.submit Spree.t('email_to_friend.send_message') %>
   </p>
 <% end -%>
+</div>
