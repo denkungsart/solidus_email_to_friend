@@ -6,7 +6,7 @@ require 'spree_email_to_friend/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'solidus_email_to_friend'
+  s.name        = 'spree_email_to_friend'
   s.version     = SpreeEmailToFriend.version
   s.summary     = 'Spree extension to send product recommendations to friends'
   s.description = s.summary
