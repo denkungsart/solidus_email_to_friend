@@ -8,7 +8,7 @@ RSpec.describe Spree::Admin::CaptchaSettingsController, type: :controller do
 
   context '#update' do
     it 'redirects to edit captcha settings page' do
-      spree_put :update, preferences: { theme: 'white' }
+      put :update, params: { preferences: { theme: 'white' } }
       expect(response).to redirect_to spree.edit_admin_captcha_settings_path
     end
 
@@ -18,22 +18,22 @@ RSpec.describe Spree::Admin::CaptchaSettingsController, type: :controller do
             public_key: FAKE,
             use_captcha: false' do
       it 'sets preferred_theme to clean' do
-        spree_put :update, preferences: { theme: 'clean' }
+        put :update, params: { preferences: { theme: 'clean' } }
         expect(Spree::Captcha::Config.preferred_theme).to eq 'clean'
       end
 
       it 'sets preferred_private_key to FAKE' do
-        spree_put :update, preferences: { private_key: 'FAKE' }
+        put :update, params: { preferences: { private_key: 'FAKE' } }
         expect(Spree::Captcha::Config.preferred_private_key).to eq 'FAKE'
       end
 
       it 'sets preferred_public_key to FAKE' do
-        spree_put :update, preferences: { public_key: 'FAKE' }
+        put :update, params: { preferences: { public_key: 'FAKE' } }
         expect(Spree::Captcha::Config.preferred_public_key).to eq 'FAKE'
       end
 
       it 'sets preferred_use_captcha to false' do
-        spree_put :update, preferences: { use_captcha: false }
+        put :update, params: { preferences: { use_captcha: false } }
         expect(Spree::Captcha::Config.preferred_use_captcha).to be false
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe Spree::Admin::CaptchaSettingsController, type: :controller do
 
   context '#edit' do
     it 'renders the edit template' do
-      spree_get :edit
+      get :edit
       expect(response).to render_template(:edit)
     end
   end
