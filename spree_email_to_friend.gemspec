@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'solidus_core', '~> 2.0.0'
   s.add_dependency 'solidus_frontend', '~> 2.0.0'
-  s.add_dependency 'recaptcha', '>= 0.3.1'
+  s.add_dependency 'recaptcha', '~> 0.3.1'
 
   s.add_development_dependency 'factory_girl'
   s.add_development_dependency 'ffaker'
