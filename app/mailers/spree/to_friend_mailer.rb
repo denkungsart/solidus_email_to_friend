@@ -1,5 +1,5 @@
 class Spree::ToFriendMailer < ActionMailer::Base
-  default from: Spree::Store.current.mail_from_address || ''
+  default from: Spree::Store.current.mail_from_address || ActionMailer::Base.default[:from]
 
   def mail_to_friend(object, mail)
     @object = object
@@ -10,7 +10,6 @@ class Spree::ToFriendMailer < ActionMailer::Base
     default_url_options[:host] = mail.host
     opts[:subject] =  mail.subject
     opts[:reply_to] = mail.sender_email
-
     mail(opts)
   end
 end
